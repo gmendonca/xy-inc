@@ -2,50 +2,39 @@ package com.zup.app.backend;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Application;
 
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.junit.After;
-import org.junit.Before;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 
-
-public class ProductsServiceTest {
+public class ProductsServiceTest extends JerseyTest{
 	
-	private HttpServer server;
-    private WebTarget target;
-
-    @Before
-    public void setUp() throws Exception {
-        // start the server
-        server = Main.startServer();
-        // create the client
-        Client c = ClientBuilder.newClient();
-
-        // uncomment the following line if you want to enable
-        // support for JSON in the client (you also have to uncomment
-        // dependency on jersey-media-json module in pom.xml and Main.startServer())
-        // --
-         c.register(JacksonJaxbJsonProvider.class);
-
-        target = c.target(Main.BASE_URI);
+	//simple hello word test
+    @Path("hello")
+    public static class HelloResource {
+        @GET
+        public String getHello() {
+            return "Hello World!";
+        }
     }
 
-    @After
-    public void tearDown() throws Exception {
-        server.stop();
+    @Override
+    protected Application configure() {
+        return new ResourceConfig(HelloResource.class);
     }
 
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
     @Test
-    public void testGetIt() {
-        String responseMsg = target.path("myresource").request().get(String.class);
-        assertEquals("Got it!", responseMsg);
+    public void test() {
+        final String hello = target("hello").request().get(String.class);
+        assertEquals("Hello World!", hello);
     }
+    
+    //test for get all products
+    
+    
 }

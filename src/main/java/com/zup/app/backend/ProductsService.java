@@ -1,5 +1,7 @@
 package com.zup.app.backend;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,73 +20,50 @@ public class ProductsService {
 
 	@GET
 	@Path("/all")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getAllProducts() {
-		String result = "========Products List========\n";
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Products> getAllProducts() {
+		ArrayList<Products> products = new ArrayList<Products>();
 		try {
 			Connector.openConnection();
-			for(Products product : Connector.getAllProducts()){
-				result += product.getId();
-				result += "\n";
-				result += product.getName();
-				result += "\n";
-				result += product.getDescription();
-				result += "\n";
-				result += product.getPrice();
-				result += "\n";
-				result += product.getCategory();
-				result += "\n";
-			}
+			products = Connector.getAllProducts();
 		}catch (Exception e){
-			result += e.getMessage();
+			return null;
 		}finally{
 			Connector.closeConnection();
 		}
 
-		return result;
+		return products;
 	}
 
 	@GET
 	@Path("{id}")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getProduct(@PathParam("id") String id){
-		String result = "========Products Found========\n";
+	@Produces(MediaType.APPLICATION_JSON)
+	public Products getProduct(@PathParam("id") String id){
 		try {
 			Connector.openConnection();
-			Products product = Connector.getProduct(id);
-			if(product == null){
-				result  += "Product not found";
-			}else{
-				result += product.getId();
-				result += "\n";
-				result += product.getName();
-				result += "\n";
-				result += product.getDescription();
-				result += "\n";
-				result += product.getPrice();
-				result += "\n";
-				result += product.getCategory();
-				result += "\n";
-			}
+			return Connector.getProduct(id);
 		}catch (Exception e){
-			result += e.getMessage();
+			return null;
 		}finally{
 			Connector.closeConnection();
 		}
-
-		return result;
 	}
 	
 	@Path("/add")
 	@POST
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Products addProduct(Products product) {
-
 		if (product != null) {
-			return Connector.addProduct(product) ? product : null;
+			try {
+				Connector.openConnection();
+				return Connector.addProduct(product) ? product : null;
+			}catch (Exception e){
+				return null;
+			}finally{
+				Connector.closeConnection();
+			}
 		}
-		
 		return null;
 	}
 
@@ -92,12 +71,18 @@ public class ProductsService {
 
 	@Path("{id}")
 	@PUT
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Products updateProducts(@PathParam("id") String id, Products product) {
-		
 		if (product != null) {
-			return Connector.updateProduct(id,product) ? product : null;
+			try {
+				Connector.openConnection();
+				return Connector.updateProduct(id,product) ? product : null;
+			}catch (Exception e){
+				return null;
+			}finally{
+				Connector.closeConnection();
+			}
 		}
 		
 		return null;
@@ -107,9 +92,16 @@ public class ProductsService {
 	@DELETE
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteProductsById(@PathParam("id") String id) {
-		
 		if (id != null) {
-			return Connector.deleteProduct(id) ? "Product has been deleted." : null;
+			try {
+				Connector.openConnection();
+				//TODO: check if this return is alright
+				return Connector.deleteProduct(id) ? "Product has been deleted." : null;
+			}catch (Exception e){
+				return null;
+			}finally{
+				Connector.closeConnection();
+			}
 		}
 		
 		return null;
