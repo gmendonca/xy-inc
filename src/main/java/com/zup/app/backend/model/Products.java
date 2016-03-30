@@ -21,15 +21,15 @@ public class Products {
 	private MongoDatabase db;
 	private MongoCollection<Document> collection;
 	
-	public Products(){
-		mongo = new MongoClient( "localhost" , 27017 );
-		db = mongo.getDatabase("test");
-		collection = db.getCollection("products");
-	}
-	
 	//helpers
 	public void closeConnection(){
 		mongo.close();
+	}
+	
+	public void openConnection(){
+		mongo = new MongoClient( "localhost" , 27017 );
+		db = mongo.getDatabase("test");
+		collection = db.getCollection("products");
 	}
 	
 	//getters
