@@ -23,29 +23,41 @@ public class ProductsServiceTest{
 	private HttpServer server;
 	private WebTarget target;
 	
+	/*
+	 * Static IP for tests
+	 */
 	private static String PRODUCTS_ID = "555444";
-
+	
+	/*
+	 * Setting up server for tests
+	 */
 	@Before
 	public void setUp() throws Exception {
 		// start the server
 		server = Main.startServer();
 		// create the client
 		Client c = ClientBuilder.newClient();
-
-		// uncomment the following line if you want to enable
-		// support for JSON in the client (you also have to uncomment
-		// dependency on jersey-media-json module in pom.xml and Main.startServer())
-		// --
+		
+		// Spport for Json responses
 		c.register(JacksonJaxbJsonProvider.class);
 
 		target = c.target(Main.BASE_URI);
 	}
-
+	
+	/*
+	 * Server shutdown
+	 */
 	@After
 	public void tearDown() throws Exception {
 		server.shutdownNow();;
 	}
-
+	
+	/*
+	 * Test getting all Products
+	 * - Uses GET
+	 * - Waits for an OK response status
+	 * - Check for a JSON for the response
+	 */
 	@Test
 	public void testGetAllProducts() {
 		final Response response = target.path("/products/all")
@@ -58,21 +70,13 @@ public class ProductsServiceTest{
 		assertEquals(200, response.getStatus());
 		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
 	}
-
-	@Test
-	public void testGetProduct() {
-		final Response response = target.path("/products/47056")
-				.request()
-				.get();
-
-		System.out.println("================");
-		System.out.println(response.readEntity(String.class));
-
-		assertEquals(200, response.getStatus());
-		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
-
-	}
-
+	
+	/*
+	 * Test adding a Product
+	 * - Uses POST
+	 * - Waits for an OK response status
+	 * - Check for a JSON for the response
+	 */
 	@Test
 	public void testAddProduct() {
 		Product product = new Product();
@@ -93,6 +97,32 @@ public class ProductsServiceTest{
 		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
 	}
 	
+	/*
+	 * Test getting a Product
+	 * - Uses GET
+	 * - Waits for an OK response status
+	 * - Check for a JSON for the response
+	 */
+	@Test
+	public void testGetProduct() {
+		final Response response = target.path("/products/" + PRODUCTS_ID)
+				.request()
+				.get();
+
+		System.out.println("================");
+		System.out.println(response.readEntity(String.class));
+
+		assertEquals(200, response.getStatus());
+		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
+
+	}
+	
+	/*
+	 * Test updating a Product
+	 * - Uses PUT
+	 * - Waits for an OK response status
+	 * - Check for a JSON for the response
+	 */
 	@Test
 	public void testUpdateProduct() {
 		Product product = new Product();
@@ -111,6 +141,12 @@ public class ProductsServiceTest{
 		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType().toString());
 	}
 	
+	/*
+	 * Test deleting a Product
+	 * - Uses DELETE
+	 * - Waits for an OK response status
+	 * - Check for a JSON for the response
+	 */
 	@Test
 	public void testDeleteProduct() {
 		
