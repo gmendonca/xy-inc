@@ -90,7 +90,7 @@ public class ProductsService {
 
 	@Path("{id}")
 	@DELETE
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String deleteProductsById(@PathParam("id") String id) {
 		if (id != null) {
 			try {

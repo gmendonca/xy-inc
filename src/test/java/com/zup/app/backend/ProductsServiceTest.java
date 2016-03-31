@@ -43,16 +43,29 @@ public class ProductsServiceTest{
 	}
 
 	@Test
-	public void testGetAll() {
-
+	public void testGetAllProducts() {
 		final Response response = target.path("/products/all")
 				.request(MediaType.APPLICATION_JSON)
 				.get();
 
 		assertEquals(200, response.getStatus());
-		assertEquals("application/json", response.getMediaType());
+		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType());
 		//System.out.println("================");
 		//System.out.println(response.readEntity(String.class));
+	}
+	
+	@Test
+	public void testGetProduct() {
+		final Response response = target.path("/products/47056")
+				.request(MediaType.APPLICATION_JSON)
+				.get();
+		
+		System.out.println("================");
+		System.out.println(response.readEntity(String.class));
+		
+		assertEquals(200, response.getStatus());
+		assertEquals(MediaType.APPLICATION_JSON, response.getMediaType());
+		
 	}
 
 }
