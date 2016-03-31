@@ -10,15 +10,15 @@ public class Product {
 	private String id;
 	private String name;
 	private String description;
-	private float price;
+	private Float price;
 	private String category;
 	
-	//constructors
+	//Constructors
 	public Product(){
 		this.id = String.format("%06d", new Random().nextInt(999999) + 1);
 	}
 	
-	//getters
+	//Getters
 	public String getId() {
 		return id;
 	}
@@ -39,7 +39,7 @@ public class Product {
 		return category;
 	}
 	
-	//setters
+	//Setters
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -62,13 +62,28 @@ public class Product {
 	
 	//Helpers
 	
-	//Create a Bson document for the object
+	/*
+	 * Create a Bson document for the object
+	 */
 	public Document toDocument(){
 		return new Document("products_id", this.id)
 						.append("name", this.name)
 						.append("description", this.description)
 						.append("price", this.price)
 						.append("category", this.category);
+	}
+	
+	/*
+	 * Create a Bson document for the Update the MongoDB instance
+	 */
+	public Document toUpdateDocument(){
+		Document doc = new Document();
+		if(this.name != null) doc.append("name", this.name);
+		if(this.description != null) doc.append("description", this.description);
+		if(this.price != null) doc.append("price", this.price);
+		if(this.category != null) doc.append("category", this.category);
+		return new Document("$set",doc);
+
 	}
 
 }

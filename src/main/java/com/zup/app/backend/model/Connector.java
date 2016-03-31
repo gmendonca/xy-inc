@@ -12,7 +12,6 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
-import com.mongodb.client.result.UpdateResult;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -103,11 +102,11 @@ public class Connector {
 	}
 	
 	// Update a product by id and new information from MongoDB Collection
-	public static Boolean updateProduct(String id, Product product){
-		UpdateResult result = collection.updateOne(new Document("products_id", id),product.toDocument());
+	public static Product updateProduct(String id, Product product){
+		collection.updateOne(eq("products_id", id),product.toUpdateDocument());
 		
 		//TODO: modify this for MongoDB clusters, this is only working for standalone applications
-		return result.getMatchedCount() > 0;
+		return getProduct(id);
 	}
 	
 	// Delete a product by id from MongoDB Collection

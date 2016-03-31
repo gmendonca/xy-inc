@@ -77,7 +77,7 @@ public class ProductsService {
 		if (product != null) {
 			try {
 				Connector.openConnection();
-				return Connector.updateProduct(id,product) ? product : null;
+				return Connector.updateProduct(id,product);
 			}catch (Exception e){
 				return null;
 			}finally{
@@ -95,7 +95,6 @@ public class ProductsService {
 		if (id != null) {
 			try {
 				Connector.openConnection();
-				//TODO: check if this return is alright
 				return Connector.deleteProduct(id) ? "Product has been deleted." : null;
 			}catch (Exception e){
 				return null;
