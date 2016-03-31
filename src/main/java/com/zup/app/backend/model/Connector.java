@@ -49,14 +49,14 @@ public class Connector {
 	//Operations
 
 	// Get all the Product from MongoDB Collection
-	public static ArrayList<Products> getAllProducts(){
+	public static ArrayList<Product> getAllProducts(){
 		FindIterable<Document> iterable = collection.find();
-		final ArrayList<Products> products = new ArrayList<Products>();
+		final ArrayList<Product> products = new ArrayList<Product>();
 		iterable.forEach(new Block<Document>() {
 			//Overrides how to process the Bson document and wraps the result in the Product Class
 			@Override
 			public void apply(final Document document) {
-				Products product = new Products();
+				Product product = new Product();
 
 				for (Map.Entry<String, Object> entry : document.entrySet()){
 					if(entry.getKey().equals("name")) product.setName(entry.getValue().toString());
@@ -74,10 +74,10 @@ public class Connector {
 	}
 
 	// Get a product by id from MongoDB Collection
-	public static Products getProduct(String id){
+	public static Product getProduct(String id){
 		Document document = collection.find(eq("products_id", id)).first();
 		
-		Products product = new Products();
+		Product product = new Product();
 
 		for (Map.Entry<String, Object> entry : document.entrySet()){
 			if(entry.getKey().equals("name")) product.setName(entry.getValue().toString());
@@ -93,7 +93,7 @@ public class Connector {
 	
 	
 	// Add a product to MongoDB Collection
-	public static Boolean addProduct(Products product){
+	public static Boolean addProduct(Product product){
 		try{
 			collection.insertOne(product.toDocument());
 		}catch(Exception e){
@@ -103,7 +103,7 @@ public class Connector {
 	}
 	
 	// Update a product by id and new information from MongoDB Collection
-	public static Boolean updateProduct(String id, Products product){
+	public static Boolean updateProduct(String id, Product product){
 		UpdateResult result = collection.updateOne(new Document("products_id", id),product.toDocument());
 		
 		//TODO: modify this for MongoDB clusters, this is only working for standalone applications

@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.zup.app.backend.model.Connector;
-import com.zup.app.backend.model.Products;
+import com.zup.app.backend.model.Product;
 
 @Path("/products")
 public class ProductsService {
@@ -21,8 +21,8 @@ public class ProductsService {
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Products> getAllProducts() {
-		ArrayList<Products> products = new ArrayList<Products>();
+	public ArrayList<Product> getAllProducts() {
+		ArrayList<Product> products = new ArrayList<Product>();
 		try {
 			Connector.openConnection();
 			products = Connector.getAllProducts();
@@ -38,7 +38,7 @@ public class ProductsService {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Products getProduct(@PathParam("id") String id){
+	public Product getProduct(@PathParam("id") String id){
 		try {
 			Connector.openConnection();
 			return Connector.getProduct(id);
@@ -53,7 +53,7 @@ public class ProductsService {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Products addProduct(Products product) {
+	public Product addProduct(Product product) {
 		if (product != null) {
 			try {
 				Connector.openConnection();
@@ -73,7 +73,7 @@ public class ProductsService {
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Products updateProducts(@PathParam("id") String id, Products product) {
+	public Product updateProducts(@PathParam("id") String id, Product product) {
 		if (product != null) {
 			try {
 				Connector.openConnection();

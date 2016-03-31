@@ -5,7 +5,7 @@ import java.util.Random;
 import org.bson.Document;
 
 
-public class Products {
+public class Product {
 	
 	private String id;
 	private String name;
@@ -14,7 +14,7 @@ public class Products {
 	private String category;
 	
 	//constructors
-	public Products(){
+	public Product(){
 		this.id = String.format("%06d", new Random().nextInt(999999) + 1);
 	}
 	
