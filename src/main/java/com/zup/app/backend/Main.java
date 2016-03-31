@@ -27,6 +27,8 @@ public class Main {
         final ResourceConfig rc = new ResourceConfig().packages("com.zup.app.backend");
         
         rc.register(JacksonJaxbJsonProvider.class);
+        
+        
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
@@ -44,6 +46,7 @@ public class Main {
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         System.in.read();
         server.shutdownNow();
+        
     }
 }
 
