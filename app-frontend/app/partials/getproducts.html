@@ -1,9 +1,24 @@
 <div class="container">
-    <div ng-app="myApp" ng-controller="HttpCtrl">
-        <table class="side">
-          <tr ng-repeat="p in products" ng-click="getProduct(p.products_id)" >
-            <td class="side">{{p.name}}</td>
-          </tr>
+    <div class="table-responsive" ng-app="myApp" ng-controller="ProductsCtrl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="p in products">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.description}}</td>
+                    <td>{{p.price}}</td>
+                    <td>{{p.category}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

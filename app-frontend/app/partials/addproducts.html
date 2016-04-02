@@ -2,12 +2,7 @@
     <div ng-app="myApp" ng-controller="HttpCtrl">
 
         <form novalidate>
-            Find a product by id:
-            <br>
-            <input type="text" ng-model="product_id">
-            <br>
-            <button ng-show="product_id" ng-click="getProduct(product_id)">Get product {{ product_id }}</button>
-            <br>
+            Register a product:
             <br>
             Name:
             <br>
@@ -22,7 +17,7 @@
             <br>
             <input type="text" size="80" ng-model="prod.category"><br>
             <br>
-            <button ng-show="product_id" ng-click="updateProduct(product_id)">Update</button><button ng-show="product_id" ng-click="deleteProduct(product_id)">Delete</button>
+            <button ng-click="addProduct()">Create</button>
             <br>
             {{message}}
         </form>
