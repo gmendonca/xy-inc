@@ -1,7 +1,9 @@
 package com.zup.app.backend.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import org.bson.Document;
 
@@ -35,6 +37,9 @@ public class Connector {
 		mongo = new MongoClient( "localhost" , 27017 );
 		mongo.setWriteConcern(WriteConcern.W1);
 		db = mongo.getDatabase("test");
+		if(collectionExists("products")){
+			db.createCollection("products");
+		}
 		collection = db.getCollection("products");
 	}
 
@@ -120,6 +125,21 @@ public class Connector {
 	// Insert Many instances for testing purposes
 	public static void insertMany(ArrayList<Document> documents){
 		collection.insertMany(documents);
+	}
+	
+	//Check if collection exists
+	
+	private static boolean collectionExists(String collectionName){
+		
+		Iterator<String> collectionNames = db.listCollectionNames().iterator();
+		
+		while(collectionNames.hasNext()){
+			if(collectionNames.next().equals(collectionName)){
+				return true;
+			}
+		}
+		return false;
+		
 	}
 }
 
