@@ -1,6 +1,6 @@
 # Zup App Backend Project
 
-This project aims to build a RESTful API with Java and Web Application to communicate with it.
+This project aims to build a RESTful API with Java and a Web Application to communicate with it.
 
 ## Architecture
 
