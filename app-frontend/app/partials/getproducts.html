@@ -1,0 +1,9 @@
+<div class="container">
+    <div ng-app="myApp" ng-controller="HttpCtrl">
+        <table class="side">
+          <tr ng-repeat="p in products" ng-click="getProduct(p.products_id)" >
+            <td class="side">{{p.name}}</td>
+          </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+    <div ng-app="myApp" ng-controller="HttpCtrl">
+        <form novalidate>
+            Name:
+            <br>
+            <input type="text" ng-model="prod.name"><br>
+            Description:
+            <br>
+            <input type="text" ng-model="prod.description"><br>
+            Price:
+            <br>
+            <input type="text" ng-model="prod.price"><br>
+            Category:
+            <br>
+            <input type="text" ng-model="prod.category"><br>
+            <br>
+            <input type="text" ng-model="product_id"><button ng-show="product_id" ng-click="getProduct(product_id)">GET PRODUCT {{ product_id }}</button>
+        </form>
+    </div>
+</div>
