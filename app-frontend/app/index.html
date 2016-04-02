@@ -11,51 +11,30 @@
 </head>
 <body>
     <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Zup's App</a>
-    </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Zup's App</a>
+            </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#">GetProducts</a></li>
-        <li><a href="#">GetProduct</a></li>
-        <li><a href="#">AddProduct</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">GetProducts</a></li>
+                    <li><a href="#/getproduct">GetProduct</a></li>
+                    <li><a href="#">AddProduct</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
-    <div class="container">
-        <div ng-app="myApp" ng-controller="HttpCtrl">
-            <form novalidate>
-                Name:
-                <br>
-                <input type="text" ng-model="prod.name"><br>
-                Description:
-                <br>
-                <input type="text" ng-model="prod.description"><br>
-                Price:
-                <br>
-                <input type="text" ng-model="prod.price"><br>
-                Category:
-                <br>
-                <input type="text" ng-model="prod.category"><br>
-                <br>
-                <input type="text" ng-model="product_id"><button ng-show="product_id" ng-click="getProduct(product_id)">GET PRODUCT {{ product_id }}</button>
-            </form>
-
-            <!--<p ng-show="name">Hello, {{ name }} {{lastName}}</p>-->
-        </div>
-    </div>
+    <div ng-view></div>
 
 
     <script src="bower_components/angular/angular.js"></script>
