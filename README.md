@@ -34,23 +34,40 @@ It uses [npm](https://www.npmjs.com/) and [bower](http://bower.io/) for package 
  * [JQuery](https://jquery.com/)
  * [Bootstrap](http://getbootstrap.com/)
 
- ## Building and Running
+## Building and Running
 
- To run the the code you need to install Java, Maven, MongoDB and npm.
+To run the the code you need to install Java, Maven, MongoDB and npm.
 
- After that, you can run the code:
+After that, you can run the code:
 
 Running the database:
+
     $ mongod
+
+Compiling API:
 
     $ mvn clean compile
 
+Executing API:
+
     $ mvn exec:java
+
+Executing Insert Many Products for testing purposes:
 
     $ mvn exec:java@insert
 
+Executing Tests:
+
     $ mvn test
 
+Executing tests with JaCoCo (You need Eclipse to see the report):
+
+    $ mvn test jacoco:report
+
+Install Dependencies for Frontend App:
+
     $ npm install
+
+Run Frontend APP:
 
     $ npm start
