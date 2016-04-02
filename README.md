@@ -2,7 +2,7 @@
 
 This project aims to build a RESTful API with Java and Web Application to communicate with it.
 
-## Components
+## Architecture
 
 ### App's Backend
 
@@ -17,18 +17,17 @@ It uses [npm](https://www.npmjs.com/) and [bower](http://bower.io/) for package 
 
 ## Dependencies
 
-### Maven
-    * Jersey2
-    * Grizzly2
-    * Jersey Jackson Json
-    * MongoDB Java Driver
-    * JUnit
-    * JaCoCo
+### App's Backend
+    * [Jersey2](https://jersey.java.net/)
+    * [Grizzly2](https://grizzly.java.net/)
+    * [Jersey Jackson Json](https://github.com/FasterXML/jackson-jaxrs-providers)
+    * [MongoDB 3.2.1](https://www.mongodb.org/)
+    * [MongoDB Java Driver](https://docs.mongodb.org/ecosystem/drivers/java/)
+    * [JUnit](http://junit.org/junit4/)
+    * [JaCoCo](http://eclemma.org/jacoco/)
 
-### MongoDB
-    * Version 3.2.1
-
-### npm/bower
-    * AngularJS
-    * JQuery
-    * bootstrap
+### App's Frontend
+    * [npm](https://www.npmjs.com/)/[bower](http://bower.io/)
+    * [AngularJS](https://angularjs.org/)
+    * [JQuery](https://jquery.com/)
+    * [Bootstrap](http://getbootstrap.com/)

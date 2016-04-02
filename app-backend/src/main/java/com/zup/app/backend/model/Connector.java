@@ -116,5 +116,10 @@ public class Connector {
 		//TODO: modify this for MongoDB clusters, this is only working for standalone applications
 		return result.getDeletedCount() > 0;
 	}
+	
+	// Insert Many instances for testing purposes
+	public static void insertMany(ArrayList<Document> documents){
+		collection.insertMany(documents);
+	}
 }
 

@@ -18,6 +18,13 @@ public class Product {
 		this.id = String.format("%06d", new Random().nextInt(999999) + 1);
 	}
 	
+	public Product(String name, String description, Float price, String category){
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+	}
+	
 	//Getters
 	public String getId() {
 		return id;
