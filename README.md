@@ -18,16 +18,39 @@ It uses [npm](https://www.npmjs.com/) and [bower](http://bower.io/) for package 
 ## Dependencies
 
 ### App's Backend
-    * [Jersey2](https://jersey.java.net/)
-    * [Grizzly2](https://grizzly.java.net/)
-    * [Jersey Jackson Json](https://github.com/FasterXML/jackson-jaxrs-providers)
+    * [Maven](https://maven.apache.org/)
+    - [Jersey2](https://jersey.java.net/)
+    - [Grizzly2](https://grizzly.java.net/)
+    - [Jersey Jackson Json](https://github.com/FasterXML/jackson-jaxrs-providers)
+    - [JUnit](http://junit.org/junit4/)
+    - [JaCoCo](http://eclemma.org/jacoco/)
     * [MongoDB 3.2.1](https://www.mongodb.org/)
-    * [MongoDB Java Driver](https://docs.mongodb.org/ecosystem/drivers/java/)
-    * [JUnit](http://junit.org/junit4/)
-    * [JaCoCo](http://eclemma.org/jacoco/)
+    - [MongoDB Java Driver](https://docs.mongodb.org/ecosystem/drivers/java/)
+
 
 ### App's Frontend
     * [npm](https://www.npmjs.com/)/[bower](http://bower.io/)
-    * [AngularJS](https://angularjs.org/)
-    * [JQuery](https://jquery.com/)
-    * [Bootstrap](http://getbootstrap.com/)
+    - [AngularJS](https://angularjs.org/)
+    - [JQuery](https://jquery.com/)
+    - [Bootstrap](http://getbootstrap.com/)
+
+ ## Building and Running
+
+ To run the the code you need to install Java, Maven, MongoDB and npm.
+
+ After that, you can run the code:
+
+Running the database:
+    $ mongod
+
+    $ mvn clean compile
+
+    $ mvn exec:java
+
+    $ mvn exec:java@insert
+
+    $ mvn test
+
+    $ npm install
+
+    $ npm start

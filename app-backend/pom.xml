@@ -65,14 +65,25 @@
 				<version>1.2.1</version>
 				<executions>
 					<execution>
+						<id>default-cli</id>
 						<goals>
 							<goal>java</goal>
 						</goals>
+						<configuration>
+							<mainClass>com.zup.app.backend.Main</mainClass>
+						</configuration>
+					</execution>
+					<execution>
+						<id>insert</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>com.zup.app.backend.helpers.InsertData</mainClass>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<mainClass>com.zup.app.backend.Main</mainClass>
-				</configuration>
+
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
