@@ -18,21 +18,21 @@ It uses [npm](https://www.npmjs.com/) and [bower](http://bower.io/) for package 
 ## Dependencies
 
 ### App's Backend
-    * [Maven](https://maven.apache.org/)
-    - [Jersey2](https://jersey.java.net/)
-    - [Grizzly2](https://grizzly.java.net/)
-    - [Jersey Jackson Json](https://github.com/FasterXML/jackson-jaxrs-providers)
-    - [JUnit](http://junit.org/junit4/)
-    - [JaCoCo](http://eclemma.org/jacoco/)
-    * [MongoDB 3.2.1](https://www.mongodb.org/)
-    - [MongoDB Java Driver](https://docs.mongodb.org/ecosystem/drivers/java/)
+* [Maven](https://maven.apache.org/)
+- [Jersey2](https://jersey.java.net/)
+- [Grizzly2](https://grizzly.java.net/)
+- [Jersey Jackson Json](https://github.com/FasterXML/jackson-jaxrs-providers)
+- [JUnit](http://junit.org/junit4/)
+- [JaCoCo](http://eclemma.org/jacoco/)
+* [MongoDB 3.2.1](https://www.mongodb.org/)
+- [MongoDB Java Driver](https://docs.mongodb.org/ecosystem/drivers/java/)
 
 
 ### App's Frontend
-    * [npm](https://www.npmjs.com/)/[bower](http://bower.io/)
-    - [AngularJS](https://angularjs.org/)
-    - [JQuery](https://jquery.com/)
-    - [Bootstrap](http://getbootstrap.com/)
+* [npm](https://www.npmjs.com/)/[bower](http://bower.io/)
+- [AngularJS](https://angularjs.org/)
+- [JQuery](https://jquery.com/)
+- [Bootstrap](http://getbootstrap.com/)
 
  ## Building and Running
 
