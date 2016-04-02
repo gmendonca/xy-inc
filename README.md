@@ -44,30 +44,30 @@ Running the database:
 
     $ mongod
 
-Compiling API:
+Compiling API (Inside ```app-backend``` folder):
 
     $ mvn clean compile
 
-Executing API:
+Executing API (Inside ```app-backend``` folder):
 
     $ mvn exec:java
 
-Executing Insert Many Products for testing purposes:
+Executing Insert Many Products for testing purposes (Inside ```app-backend``` folder):
 
     $ mvn exec:java@insert
 
-Executing Tests:
+Executing Tests (Inside ```app-backend``` folder):
 
     $ mvn test
 
-Executing tests with JaCoCo (You need Eclipse to see the report):
+Executing tests with JaCoCo (You need Eclipse to see the report) (Inside ```app-backend``` folder):
 
     $ mvn test jacoco:report
 
-Install Dependencies for Frontend App:
+Install Dependencies for Frontend App (Inside ```app-frontend``` folder):
 
     $ npm install
 
-Run Frontend APP:
+Run Frontend APP (Inside ```app-frontend``` folder):
 
     $ npm start
