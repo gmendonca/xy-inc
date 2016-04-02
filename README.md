@@ -30,9 +30,9 @@ It uses [npm](https://www.npmjs.com/) and [bower](http://bower.io/) for package 
 
 ### App's Frontend
 * [npm](https://www.npmjs.com/)/[bower](http://bower.io/)
-** [AngularJS](https://angularjs.org/)
-** [JQuery](https://jquery.com/)
-** [Bootstrap](http://getbootstrap.com/)
+ * [AngularJS](https://angularjs.org/)
+ * [JQuery](https://jquery.com/)
+ * [Bootstrap](http://getbootstrap.com/)
 
  ## Building and Running
 
