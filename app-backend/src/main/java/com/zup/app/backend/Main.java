@@ -46,13 +46,14 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-    	
+    	//Start Connection with MongoDB
     	try{
     		Connector.openConnection();
     	}catch (Exception e){
     		System.out.println("Couldn't connect to MongoDB, turn it on first...");
     		return;
     	}
+    	//Start Grizzly HttpServer
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));

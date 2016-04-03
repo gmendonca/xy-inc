@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import com.zup.app.backend.model.Connector;
 import com.zup.app.backend.model.Product;
 
 
@@ -33,6 +34,8 @@ public class ProductsServiceTest{
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//Start connection with MongoDB
+    	Connector.openConnection();
 		// start the server
 		server = Main.startServer();
 		// create the client
@@ -49,7 +52,8 @@ public class ProductsServiceTest{
 	 */
 	@After
 	public void tearDown() throws Exception {
-		server.shutdownNow();;
+		server.shutdownNow();
+		Connector.closeConnection();
 	}
 	
 	/*
