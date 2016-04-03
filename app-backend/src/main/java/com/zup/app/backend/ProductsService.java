@@ -24,12 +24,9 @@ public class ProductsService {
 	public ArrayList<Product> getAllProducts() {
 		ArrayList<Product> products = new ArrayList<Product>();
 		try {
-			Connector.openConnection();
 			products = Connector.getAllProducts();
 		}catch (Exception e){
 			return null;
-		}finally{
-			Connector.closeConnection();
 		}
 
 		return products;
@@ -40,12 +37,9 @@ public class ProductsService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product getProduct(@PathParam("id") String id){
 		try {
-			Connector.openConnection();
 			return Connector.getProduct(id);
 		}catch (Exception e){
 			return null;
-		}finally{
-			Connector.closeConnection();
 		}
 	}
 	
@@ -56,12 +50,9 @@ public class ProductsService {
 	public Product addProduct(Product product) {
 		if (product != null) {
 			try {
-				Connector.openConnection();
 				return Connector.addProduct(product) ? product : null;
 			}catch (Exception e){
 				return null;
-			}finally{
-				Connector.closeConnection();
 			}
 		}
 		return null;
@@ -76,12 +67,9 @@ public class ProductsService {
 	public Product updateProducts(@PathParam("id") String id, Product product) {
 		if (product != null) {
 			try {
-				Connector.openConnection();
 				return Connector.updateProduct(id,product);
 			}catch (Exception e){
 				return null;
-			}finally{
-				Connector.closeConnection();
 			}
 		}
 		
@@ -94,12 +82,9 @@ public class ProductsService {
 	public String deleteProductsById(@PathParam("id") String id) {
 		if (id != null) {
 			try {
-				Connector.openConnection();
 				return Connector.deleteProduct(id) ? "Product has been deleted." : null;
 			}catch (Exception e){
 				return null;
-			}finally{
-				Connector.closeConnection();
 			}
 		}
 		

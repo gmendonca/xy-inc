@@ -6,6 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.zup.app.backend.helpers.CORSFilter;
+import com.zup.app.backend.model.Connector;
 
 import java.io.IOException;
 import java.net.URI;
@@ -45,12 +46,19 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+    	
+    	try{
+    		Connector.openConnection();
+    	}catch (Exception e){
+    		System.out.println("Couldn't connect to MongoDB, turn it on first...");
+    		return;
+    	}
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
         System.in.read();
         server.shutdownNow();
-        
+        Connector.closeConnection();
     }
 }
 

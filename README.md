@@ -71,3 +71,8 @@ Install Dependencies for Frontend App (Inside ```app-frontend``` folder):
 Run Frontend APP (Inside ```app-frontend``` folder):
 
     $ npm start
+
+Run Frontend APP end-to-end test (Inside ```app-frontend``` folder and using Google Chrome):
+
+    $ npm run update-webdriver
+    $ npm run protractor
