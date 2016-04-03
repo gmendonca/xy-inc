@@ -127,7 +127,6 @@ public class Connector {
 	}
 	
 	//Check if collection exists
-	
 	private static boolean collectionExists(String collectionName){
 		
 		Iterator<String> collectionNames = db.listCollectionNames().iterator();
