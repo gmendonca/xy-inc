@@ -36,7 +36,7 @@ public class Connector {
 		mongo = new MongoClient( "localhost" , 27017 );
 		mongo.setWriteConcern(WriteConcern.W1);
 		db = mongo.getDatabase("test");
-		if(collectionExists("products")){
+		if(!collectionExists("products")){
 			db.createCollection("products");
 		}
 		collection = db.getCollection("products");

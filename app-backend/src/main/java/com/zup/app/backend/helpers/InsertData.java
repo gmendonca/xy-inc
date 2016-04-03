@@ -12,7 +12,6 @@ public class InsertData {
 	
 	public static void main(String [] args)  throws IOException{
 		
-		System.out.println("=================HERE");
 		ArrayList<Document> documents = new ArrayList<Document>();
 		documents.add(new Product("iPhone 6S", "This a phone made by Apple", 650.0f, "Smartphones").toDocument());
 		documents.add(new Product("Nexus 6P", "This a phone made by Google", 500.0f, "Smartphones").toDocument());

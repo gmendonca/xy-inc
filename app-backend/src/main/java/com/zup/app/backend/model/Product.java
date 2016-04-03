@@ -19,6 +19,7 @@ public class Product {
 	}
 	
 	public Product(String name, String description, Float price, String category){
+		this.id = String.format("%06d", new Random().nextInt(999999) + 1);
 		this.name = name;
 		this.description = description;
 		this.price = price;
