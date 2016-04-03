@@ -9,7 +9,9 @@ import com.zup.app.backend.model.Connector;
 import com.zup.app.backend.model.Product;
 
 public class InsertData {
-	
+	/*
+	 * Class create to server as a script to insert some data in the MongoDB instance
+	 */
 	public static void main(String [] args)  throws IOException{
 		
 		ArrayList<Document> documents = new ArrayList<Document>();

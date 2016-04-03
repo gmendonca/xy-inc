@@ -17,7 +17,10 @@ import com.zup.app.backend.model.Product;
 
 @Path("/products")
 public class ProductsService {
-
+	
+	/*
+	 * Use annotations to produce a JSON with all the products using GET
+	 */
 	@GET
 	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -31,7 +34,11 @@ public class ProductsService {
 
 		return products;
 	}
-
+	
+	/*
+	 * Use annotations to produce a JSON with a products 
+	 * using GET and an id as input
+	 */
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -43,6 +50,10 @@ public class ProductsService {
 		}
 	}
 	
+	/*
+	 * Use annotations to produce a JSON with a product that you want to store
+	 * using POST and a JSON as an input
+	 */
 	@Path("/add")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -58,8 +69,10 @@ public class ProductsService {
 		return null;
 	}
 
-
-
+	/*
+	 * Use annotations to produce a JSON with a product that you want 
+	 * to update using PUT and a JSON as an input
+	 */
 	@Path("{id}")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -75,7 +88,11 @@ public class ProductsService {
 		
 		return null;
 	}
-
+	
+	/*
+	 * Use annotations to produce a JSON with all the products 
+	 * using DELETE and getting an id as input
+	 */
 	@Path("{id}")
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)

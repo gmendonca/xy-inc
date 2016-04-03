@@ -9,7 +9,12 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 public class CORSFilter implements ContainerResponseFilter {
-
+	
+	/*
+	 * Filters to allow access from other instance of local host
+	 * Browsers normally refuse information without those headers for
+	 * security purposes
+	 */
     @Override
     public void filter(ContainerRequestContext request,
             ContainerResponseContext response) throws IOException {
